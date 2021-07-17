@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>自定义镜像 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="创建镜像步骤 创建 Dockerfile  12345678910111213FROM hub.c.163.com&#x2F;libary&#x2F;centos   ## FROM 基础镜像 镜像制作不是从0到1的过程，而是需要基于一个基础镜像进行配置，基础镜像可以是远程的镜像仓库的地址也可以是本地的镜像ENV MY_ENV1&#x3D;abc  ## ENV 配置环境变量ADD .&#x2F;a.tar.gz &#x2F;mydocker&#x2F;d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义镜像">
+<meta property="og:url" content="https://guodawn.github.io/blog/2021/07/17/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="创建镜像步骤 创建 Dockerfile  12345678910111213FROM hub.c.163.com&#x2F;libary&#x2F;centos   ## FROM 基础镜像 镜像制作不是从0到1的过程，而是需要基于一个基础镜像进行配置，基础镜像可以是远程的镜像仓库的地址也可以是本地的镜像ENV MY_ENV1&#x3D;abc  ## ENV 配置环境变量ADD .&#x2F;a.tar.gz &#x2F;mydocker&#x2F;d">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-17T14:22:36.000Z">
+<meta property="article:modified_time" content="2021-07-17T14:23:56.473Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://guodawn.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-yuque/自定义镜像" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/07/17/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/" class="article-date">
+  <time class="dt-published" datetime="2021-07-17T14:22:36.000Z" itemprop="datePublished">2021-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      自定义镜像
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="创建镜像步骤"><a href="#创建镜像步骤" class="headerlink" title="创建镜像步骤"></a>创建镜像步骤</h2><ul>
+<li>创建 <code>Dockerfile</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">FROM hub.c.163.com/libary/centos   ## FROM 基础镜像 镜像制作不是从0到1的过程，而是需要基于一个基础镜像进行配置，基础镜像可以是远程的镜像仓库的地址也可以是本地的镜像</span><br><span class="line">ENV MY_ENV1=abc  ## ENV 配置环境变量</span><br><span class="line">ADD ./a.tar.gz /mydocker/data/ ## ADD 将物理机的文件拷贝到容器中，注意如果是压缩文件会自动解压</span><br><span class="line">COPY ./a.tar.gz /mydocker/data/d1/ ## 区别于ADD， 压缩文件不会解压</span><br><span class="line">RUN yum install net-tools ## RUN 执行一个命令，有两种形式 一种: RUN &lt;command&gt; 另外一种:RUN [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]</span><br><span class="line">RUN groupadd test &amp;&amp; useradd -g gchenguang gchenguang</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CMD [&quot;/bin/bash&quot;] ## CMD 的作用是为容器提供一个默认的执行操作，比如 为容器设置默认的启动命令为bash</span><br><span class="line">CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemo off;&quot;] //允许nginx守护进程</span><br><span class="line">RUN groupadd test &amp;&amp; useradd -g gchenguang test ## 创建用户组，并添加用户</span><br><span class="line">USER gchenguang			## 将指定用户设置为登录用户</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>创建自定义的 centos 镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">FROM hub.c.163.com/libary/centos</span><br><span class="line">MAINTAINER gchenguang</span><br><span class="line">ADD <span class="comment">## 将物理机的文件拷贝到容器中 压缩文件会自动解压</span></span><br><span class="line">COPY <span class="comment">## 将纹理及文件拷贝到容器中  压缩文件不会自动解压</span></span><br><span class="line">RUN yum install net-tools</span><br><span class="line"><span class="comment">## CMD [&quot;/bin/bash&quot;]</span></span><br><span class="line">ENV MYDIR /mydir  <span class="comment">## 变量</span></span><br><span class="line">RUN groupadd <span class="built_in">test</span> &amp;&amp; useradd -g gchenguang <span class="built_in">test</span> <span class="comment">## 创建用户组，并添加用户</span></span><br><span class="line">USER gchenguang			<span class="comment">## 将指定用户设置为登录用户</span></span><br><span class="line">EXPOSE 端口  <span class="comment">## EXPOSE 是申明运行容器提供服务端口，作用是方便镜像使用者配置端口映射，另外在启动容器时候可以使用 docker run -P 参数，这是会随机映射到EXPOSE指定的端口，</span></span><br><span class="line">						 <span class="comment">## 这里要和 “docker run -p” 区分开来，“-p” 是映射宿主机器端口和容器中的服务端口， 而“-P” 只是申明容器打算使用申明端口，并不会自动在宿主进行映射</span></span><br><span class="line">VALUMN [<span class="string">&quot;/fadf&quot;</span>]</span><br><span class="line">CMD [<span class="string">&quot;nginx&quot;</span>, <span class="string">&quot;-g&quot;</span>, <span class="string">&quot;daemo off;&quot;</span>] //允许nginx守护进程</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>docker build -t centos:v2 dockerFile 文件所在目录<br>docker run -it –rm –name=c1 centos:v2<br>docker export c1 &gt; xx.tar<br>cat xxx.tar |docker import -centos:v3</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://guodawn.github.io/blog/2021/07/17/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/" data-id="ckr7v6k3n0006386i7a1aek9w" data-title="自定义镜像" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2021/07/17/yuque/sonarqube/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          sonarqube
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2021/07/17/yuque/consul/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">consul</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/07/">July 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/sonarqube/">sonarqube</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/">自定义镜像</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/consul/">consul</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/golang%E4%B8%AD%E7%9A%84%E9%99%B7%E9%98%B1/">golang中的陷阱</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/grpc/">grpc</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

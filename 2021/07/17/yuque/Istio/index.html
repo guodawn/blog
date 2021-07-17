@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Istio | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Service Mesh 对于云原生应用，采用 k8s 构建微服务和集群管理能力，采用 istio 构建服务治理能力，将逐渐称为应用微服务转型的标准配置  k8s k8s 提供平台基础设施层强大的容器编排和调度能力  服务部署和弹性伸缩 ： deployment 服务拆分和服务发现: service   istio istio 是一个开源的服务网格，它透明的分层到现有的分布式应用上。  istio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Istio">
+<meta property="og:url" content="https://guodawn.github.io/blog/2021/07/17/yuque/Istio/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Service Mesh 对于云原生应用，采用 k8s 构建微服务和集群管理能力，采用 istio 构建服务治理能力，将逐渐称为应用微服务转型的标准配置  k8s k8s 提供平台基础设施层强大的容器编排和调度能力  服务部署和弹性伸缩 ： deployment 服务拆分和服务发现: service   istio istio 是一个开源的服务网格，它透明的分层到现有的分布式应用上。  istio">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/1904465/1623216482893-2fb54534-acd0-4596-8d6b-963c458d9978.png#align=left&display=inline&height=373&margin=%5Bobject%20Object%5D&name=image.png&originHeight=746&originWidth=1218&size=369948&status=done&style=none&width=609">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/1904465/1623215703782-ade1baf1-369e-42d2-80f4-2bb9cad9cde9.png#align=left&display=inline&height=514&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1028&originWidth=1660&size=402201&status=done&style=none&width=830">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/1904465/1623217431289-8981de7b-52bd-4311-b4f0-586654ecd609.png#align=left&display=inline&height=517&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1034&originWidth=1834&size=1184132&status=done&style=none&width=917">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/1904465/1623243398759-9ed4db83-c70e-44c9-9679-fb8133d9f002.png#align=left&display=inline&height=293&margin=%5Bobject%20Object%5D&name=image.png&originHeight=586&originWidth=1900&size=504760&status=done&style=none&width=950">
+<meta property="article:published_time" content="2021-07-17T14:20:27.000Z">
+<meta property="article:modified_time" content="2021-07-17T14:23:56.696Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2021/png/1904465/1623216482893-2fb54534-acd0-4596-8d6b-963c458d9978.png#align=left&display=inline&height=373&margin=%5Bobject%20Object%5D&name=image.png&originHeight=746&originWidth=1218&size=369948&status=done&style=none&width=609">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://guodawn.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-yuque/Istio" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/07/17/yuque/Istio/" class="article-date">
+  <time class="dt-published" datetime="2021-07-17T14:20:27.000Z" itemprop="datePublished">2021-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Istio
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Service-Mesh"><a href="#Service-Mesh" class="headerlink" title="Service Mesh"></a>Service Mesh</h1><blockquote>
+<p>对于云原生应用，采用 k8s 构建微服务和集群管理能力，采用 istio 构建服务治理能力，将逐渐称为应用微服务转型的标准配置</p>
+</blockquote>
+<h1 id=""><a href="#" class="headerlink" title=""></a><img src="https://cdn.nlark.com/yuque/0/2021/png/1904465/1623216482893-2fb54534-acd0-4596-8d6b-963c458d9978.png#align=left&display=inline&height=373&margin=%5Bobject%20Object%5D&name=image.png&originHeight=746&originWidth=1218&size=369948&status=done&style=none&width=609" alt="image.png"></h1><h1 id="k8s"><a href="#k8s" class="headerlink" title="k8s"></a>k8s</h1><blockquote>
+<p>k8s 提供平台基础设施层强大的容器编排和调度能力</p>
+<ul>
+<li>服务部署和弹性伸缩 ： deployment</li>
+<li>服务拆分和服务发现: service</li>
+</ul>
+</blockquote>
+<h1 id="istio"><a href="#istio" class="headerlink" title="istio"></a>istio</h1><blockquote>
+<p>istio 是一个开源的服务网格，它透明的分层到现有的分布式应用上。</p>
+</blockquote>
+<h2 id="istio-架构"><a href="#istio-架构" class="headerlink" title="istio 架构"></a>istio 架构</h2><p><img src="https://cdn.nlark.com/yuque/0/2021/png/1904465/1623215703782-ade1baf1-369e-42d2-80f4-2bb9cad9cde9.png#align=left&display=inline&height=514&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1028&originWidth=1660&size=402201&status=done&style=none&width=830" alt="image.png"></p>
+<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><p><img src="https://cdn.nlark.com/yuque/0/2021/png/1904465/1623217431289-8981de7b-52bd-4311-b4f0-586654ecd609.png#align=left&display=inline&height=517&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1034&originWidth=1834&size=1184132&status=done&style=none&width=917" alt="image.png"></p>
+<h3 id="微服务框架-vs-Service-Mesh"><a href="#微服务框架-vs-Service-Mesh" class="headerlink" title="微服务框架 vs Service Mesh"></a>微服务框架 vs Service Mesh</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>微服务框架</th>
+<th>Service Mesh</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>业务侵入性</td>
+<td>SDK， 侵入式开发</td>
+<td>Sidecar,无侵入</td>
+</tr>
+<tr>
+<td>开发语言相关性</td>
+<td>语言强相关，Java 生态支持较好</td>
+<td>和开发语言无关</td>
+</tr>
+<tr>
+<td>升级</td>
+<td>需要业务应用监听 signal 进行开发实现优雅重启</td>
+<td>简单</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><p><a target="_blank" rel="noopener" href="https://istio.io/latest/zh/docs/examples/bookinfo/">https://istio.io/latest/zh/docs/examples/bookinfo/</a></p>
+<h2 id="流量管理"><a href="#流量管理" class="headerlink" title="流量管理"></a>流量管理</h2><blockquote>
+<p>Istio 的流量路由规则可以让您轻松地控制服务之间的流量和 API 调用。 Istio 简化了服务级别属性(如断路器、超时和重试)的配置，并使设置重要任务(如 A/B 测试、canary 部署和基于百分比的流量分割的分阶段部署)变得容易。 它还提供了开箱即用的故障恢复特性，帮助您的应用程序更健壮地应对依赖服务或网络的故障。</p>
+</blockquote>
+<h4 id="Virtual-Service"><a href="#Virtual-Service" class="headerlink" title="Virtual Service"></a>Virtual Service</h4><blockquote>
+<p>Virtual Service 配置如何在服务网格内将请求路由到服务，每个虚拟服务包含一组路由规则，Istio 根据给定的请求匹配到虚拟服务指定的实际目标地址</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl <span class="keyword">get</span> virtualservice <span class="operator">-</span>o yaml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">items:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1beta1</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">VirtualService</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">annotations:</span></span><br><span class="line">        <span class="attr">kubectl.kubernetes.io/last-applied-configuration:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          &#123;&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;VirtualService&quot;,&quot;metadata&quot;:&#123;&quot;annotations&quot;:&#123;&#125;,&quot;name&quot;:&quot;bookinfo&quot;,&quot;namespace&quot;:&quot;default&quot;&#125;,&quot;spec&quot;:&#123;&quot;gateways&quot;:[&quot;bookinfo-gateway&quot;],&quot;hosts&quot;:[&quot;*&quot;],&quot;http&quot;:[&#123;&quot;match&quot;:[&#123;&quot;uri&quot;:&#123;&quot;exact&quot;:&quot;/productpage&quot;&#125;&#125;,&#123;&quot;uri&quot;:&#123;&quot;prefix&quot;:&quot;/static&quot;&#125;&#125;,&#123;&quot;uri&quot;:&#123;&quot;exact&quot;:&quot;/login&quot;&#125;&#125;,&#123;&quot;uri&quot;:&#123;&quot;exact&quot;:&quot;/logout&quot;&#125;&#125;,&#123;&quot;uri&quot;:&#123;&quot;prefix&quot;:&quot;/api/v1/products&quot;&#125;&#125;],&quot;route&quot;:[&#123;&quot;destination&quot;:&#123;&quot;host&quot;:&quot;productpage&quot;,&quot;port&quot;:&#123;&quot;number&quot;:9080&#125;&#125;&#125;]&#125;]&#125;&#125;</span></span><br><span class="line"><span class="string"></span>      <span class="attr">creationTimestamp:</span> <span class="string">&quot;2021-06-09T09:17:08Z&quot;</span></span><br><span class="line">      <span class="attr">generation:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">bookinfo</span></span><br><span class="line">      <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line">      <span class="attr">resourceVersion:</span> <span class="string">&quot;69514&quot;</span></span><br><span class="line">      <span class="attr">uid:</span> <span class="string">f9209728-fa17-4619-aa29-206614d9f5f6</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">gateways:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">bookinfo-gateway</span></span><br><span class="line">      <span class="attr">hosts:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">&quot;*&quot;</span></span><br><span class="line">      <span class="attr">http:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">match:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">uri:</span></span><br><span class="line">                <span class="attr">exact:</span> <span class="string">/productpage</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">uri:</span></span><br><span class="line">                <span class="attr">prefix:</span> <span class="string">/static</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">uri:</span></span><br><span class="line">                <span class="attr">exact:</span> <span class="string">/login</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">uri:</span></span><br><span class="line">                <span class="attr">exact:</span> <span class="string">/logout</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">uri:</span></span><br><span class="line">                <span class="attr">prefix:</span> <span class="string">/api/v1/products</span></span><br><span class="line">          <span class="attr">route:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">                <span class="attr">host:</span> <span class="string">productpage</span></span><br><span class="line">                <span class="attr">port:</span></span><br><span class="line">                  <span class="attr">number:</span> <span class="number">9080</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1beta1</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">VirtualService</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">annotations:</span></span><br><span class="line">        <span class="attr">kubectl.kubernetes.io/last-applied-configuration:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          &#123;&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;VirtualService&quot;,&quot;metadata&quot;:&#123;&quot;annotations&quot;:&#123;&#125;,&quot;name&quot;:&quot;details&quot;,&quot;namespace&quot;:&quot;default&quot;&#125;,&quot;spec&quot;:&#123;&quot;hosts&quot;:[&quot;details&quot;],&quot;http&quot;:[&#123;&quot;route&quot;:[&#123;&quot;destination&quot;:&#123;&quot;host&quot;:&quot;details&quot;,&quot;subset&quot;:&quot;v1&quot;&#125;&#125;]&#125;]&#125;&#125;</span></span><br><span class="line"><span class="string"></span>      <span class="attr">creationTimestamp:</span> <span class="string">&quot;2021-06-09T09:39:26Z&quot;</span></span><br><span class="line">      <span class="attr">generation:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">details</span></span><br><span class="line">      <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line">      <span class="attr">resourceVersion:</span> <span class="string">&quot;71714&quot;</span></span><br><span class="line">      <span class="attr">uid:</span> <span class="string">f779c0dc-8d6e-4953-8027-54ac16a9fc7c</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">hosts:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">details</span></span><br><span class="line">      <span class="attr">http:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">route:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">                <span class="attr">host:</span> <span class="string">details</span></span><br><span class="line">                <span class="attr">subset:</span> <span class="string">v1</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1beta1</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">VirtualService</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">annotations:</span></span><br><span class="line">        <span class="attr">kubectl.kubernetes.io/last-applied-configuration:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          &#123;&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;VirtualService&quot;,&quot;metadata&quot;:&#123;&quot;annotations&quot;:&#123;&#125;,&quot;name&quot;:&quot;productpage&quot;,&quot;namespace&quot;:&quot;default&quot;&#125;,&quot;spec&quot;:&#123;&quot;hosts&quot;:[&quot;productpage&quot;],&quot;http&quot;:[&#123;&quot;route&quot;:[&#123;&quot;destination&quot;:&#123;&quot;host&quot;:&quot;productpage&quot;,&quot;subset&quot;:&quot;v1&quot;&#125;&#125;]&#125;]&#125;&#125;</span></span><br><span class="line"><span class="string"></span>      <span class="attr">creationTimestamp:</span> <span class="string">&quot;2021-06-09T09:39:26Z&quot;</span></span><br><span class="line">      <span class="attr">generation:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">productpage</span></span><br><span class="line">      <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line">      <span class="attr">resourceVersion:</span> <span class="string">&quot;71711&quot;</span></span><br><span class="line">      <span class="attr">uid:</span> <span class="string">d5c308ee-a1f8-4f73-a678-3c994c28c054</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">hosts:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">productpage</span></span><br><span class="line">      <span class="attr">http:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">route:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">                <span class="attr">host:</span> <span class="string">productpage</span></span><br><span class="line">                <span class="attr">subset:</span> <span class="string">v1</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1beta1</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">VirtualService</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">annotations:</span></span><br><span class="line">        <span class="attr">kubectl.kubernetes.io/last-applied-configuration:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          &#123;&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;VirtualService&quot;,&quot;metadata&quot;:&#123;&quot;annotations&quot;:&#123;&#125;,&quot;name&quot;:&quot;ratings&quot;,&quot;namespace&quot;:&quot;default&quot;&#125;,&quot;spec&quot;:&#123;&quot;hosts&quot;:[&quot;ratings&quot;],&quot;http&quot;:[&#123;&quot;route&quot;:[&#123;&quot;destination&quot;:&#123;&quot;host&quot;:&quot;ratings&quot;,&quot;subset&quot;:&quot;v1&quot;&#125;&#125;]&#125;]&#125;&#125;</span></span><br><span class="line"><span class="string"></span>      <span class="attr">creationTimestamp:</span> <span class="string">&quot;2021-06-09T09:39:26Z&quot;</span></span><br><span class="line">      <span class="attr">generation:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">ratings</span></span><br><span class="line">      <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line">      <span class="attr">resourceVersion:</span> <span class="string">&quot;71713&quot;</span></span><br><span class="line">      <span class="attr">uid:</span> <span class="string">fda459d4-0e8d-4543-b276-46ce78a340c8</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">hosts:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">ratings</span></span><br><span class="line">      <span class="attr">http:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">route:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">                <span class="attr">host:</span> <span class="string">ratings</span></span><br><span class="line">                <span class="attr">subset:</span> <span class="string">v1</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1beta1</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">VirtualService</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">annotations:</span></span><br><span class="line">        <span class="attr">kubectl.kubernetes.io/last-applied-configuration:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          &#123;&quot;apiVersion&quot;:&quot;networking.istio.io/v1alpha3&quot;,&quot;kind&quot;:&quot;VirtualService&quot;,&quot;metadata&quot;:&#123;&quot;annotations&quot;:&#123;&#125;,&quot;name&quot;:&quot;reviews&quot;,&quot;namespace&quot;:&quot;default&quot;&#125;,&quot;spec&quot;:&#123;&quot;hosts&quot;:[&quot;reviews&quot;],&quot;http&quot;:[&#123;&quot;route&quot;:[&#123;&quot;destination&quot;:&#123;&quot;host&quot;:&quot;reviews&quot;,&quot;subset&quot;:&quot;v2&quot;&#125;,&quot;weight&quot;:50&#125;,&#123;&quot;destination&quot;:&#123;&quot;host&quot;:&quot;reviews&quot;,&quot;subset&quot;:&quot;v3&quot;&#125;,&quot;weight&quot;:50&#125;]&#125;]&#125;&#125;</span></span><br><span class="line"><span class="string"></span>      <span class="attr">creationTimestamp:</span> <span class="string">&quot;2021-06-09T09:39:26Z&quot;</span></span><br><span class="line">      <span class="attr">generation:</span> <span class="number">2</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">reviews</span></span><br><span class="line">      <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line">      <span class="attr">resourceVersion:</span> <span class="string">&quot;73454&quot;</span></span><br><span class="line">      <span class="attr">uid:</span> <span class="string">ca15e174-f013-4889-9a1a-376c1b5fb395</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">hosts:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">reviews</span></span><br><span class="line">      <span class="attr">http:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">route:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">                <span class="attr">host:</span> <span class="string">reviews</span></span><br><span class="line">                <span class="attr">subset:</span> <span class="string">v2</span></span><br><span class="line">              <span class="attr">weight:</span> <span class="number">50</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">                <span class="attr">host:</span> <span class="string">reviews</span></span><br><span class="line">                <span class="attr">subset:</span> <span class="string">v3</span></span><br><span class="line">              <span class="attr">weight:</span> <span class="number">50</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">List</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">resourceVersion:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">selfLink:</span> <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>示例</strong> <br>下面的虚拟服务根据请求是否来自特定的用户，把它们路由到服务的不同版本。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1alpha3</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">VirtualService</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">reviews</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="comment"># 使用 hosts 字段列举虚拟服务的主机——即用户指定的目标或是路由规则设定的目标。这是客户端向服务发送请求时使用的一个或多个地址。</span></span><br><span class="line">  <span class="comment"># 虚拟服务主机名可以是 IP 地址、DNS 名称，或者依赖于平台的一个简称（例如 Kubernetes 服务的短名称）</span></span><br><span class="line">  <span class="attr">hosts:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">reviews</span></span><br><span class="line">  <span class="attr">http:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">match:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">headers:</span></span><br><span class="line">            <span class="attr">end-user:</span></span><br><span class="line">              <span class="attr">exact:</span> <span class="string">jason</span></span><br><span class="line">      <span class="attr">route:</span></span><br><span class="line">        <span class="comment"># destination 字段指定了符合此条件的流量的实际目标地址。与虚拟服务的 hosts 不同，destination 的 host 必须是存在于 Istio 服务注册中心的实际目标地址，否则 Envoy 不知道该将请求发送到哪里</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">            <span class="attr">host:</span> <span class="string">reviews</span></span><br><span class="line">            <span class="attr">subset:</span> <span class="string">v2</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">route:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">            <span class="attr">host:</span> <span class="string">reviews</span></span><br><span class="line">            <span class="attr">subset:</span> <span class="string">v3</span></span><br></pre></td></tr></table></figure>
+
+<p>设置权重(A/B test、灰度发布)</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">hosts:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">reviews</span></span><br><span class="line">  <span class="attr">http:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">route:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">            <span class="attr">host:</span> <span class="string">reviews</span></span><br><span class="line">            <span class="attr">subset:</span> <span class="string">v1</span></span><br><span class="line">          <span class="attr">weight:</span> <span class="number">75</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">            <span class="attr">host:</span> <span class="string">reviews</span></span><br><span class="line">            <span class="attr">subset:</span> <span class="string">v2</span></span><br><span class="line">          <span class="attr">weight:</span> <span class="number">25</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Destination-Rule"><a href="#Destination-Rule" class="headerlink" title="Destination Rule"></a>Destination Rule</h4><blockquote>
+<p>Virtual Service 提供了如何将流量路由到给定目标地址的功能， Destination Rule 则提供了使用规则来配置目标地址的流量，比如 ：负载均衡、TLS 安全模式、熔断器等</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get destinationrule -o yaml</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例</strong><br>配置负载均衡策略</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1alpha3</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">DestinationRule</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">my-destination-rule</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">my-svc</span></span><br><span class="line">  <span class="attr">trafficPolicy:</span></span><br><span class="line">    <span class="attr">loadBalancer:</span></span><br><span class="line">      <span class="attr">simple:</span> <span class="string">RANDOM</span></span><br><span class="line">  <span class="attr">subsets:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">v1</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">version:</span> <span class="string">v1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">v2</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">version:</span> <span class="string">v2</span></span><br><span class="line">      <span class="attr">trafficPolicy:</span></span><br><span class="line">        <span class="attr">loadBalancer:</span></span><br><span class="line">          <span class="attr">simple:</span> <span class="string">ROUND_ROBIN</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">v3</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">version:</span> <span class="string">v3</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Gateway"><a href="#Gateway" class="headerlink" title="Gateway"></a>Gateway</h4><blockquote>
+<p>使用 Gateway 管理入站和出站的流量，控制网格边缘的服务暴露，也可以看作是网格的负载均衡</p>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/1904465/1623243398759-9ed4db83-c70e-44c9-9679-fb8133d9f002.png#align=left&display=inline&height=293&margin=%5Bobject%20Object%5D&name=image.png&originHeight=586&originWidth=1900&size=504760&status=done&style=none&width=950" alt="image.png"><br><strong>示例</strong><br>下面的示例展示了一个外部 HTTPS 入口流量的网关配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1alpha3</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Gateway</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">ext-host-gwy</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">my-gateway-controller</span></span><br><span class="line">  <span class="attr">servers:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span></span><br><span class="line">        <span class="comment"># 监听的端口和协议</span></span><br><span class="line">        <span class="attr">number:</span> <span class="number">443</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">https</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">HTTPS</span></span><br><span class="line">      <span class="comment"># 允许指定host的流量流入网格</span></span><br><span class="line">      <span class="attr">hosts:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">ext-host.example.com</span></span><br><span class="line">      <span class="comment"># tls</span></span><br><span class="line">      <span class="attr">tls:</span></span><br><span class="line">        <span class="attr">mode:</span> <span class="string">SIMPLE</span></span><br><span class="line">        <span class="attr">serverCertificate:</span> <span class="string">/tmp/tls.crt</span></span><br><span class="line">        <span class="attr">privateKey:</span> <span class="string">/tmp/tls.key</span></span><br></pre></td></tr></table></figure>
+
+<p>想要工作的网关指定路由，您必须把网关绑定到虚拟服务上</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1alpha3</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">VirtualService</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">virtual-svc</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="comment"># 定义 Gateway L7 路由</span></span><br><span class="line">  <span class="attr">hosts:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ext-host.example.com</span></span><br><span class="line">  <span class="attr">gateways:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ext-host-gwy</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Service-Entry"><a href="#Service-Entry" class="headerlink" title="Service Entry"></a>Service Entry</h4><blockquote>
+<p>管理运行在网格外的服务的流量</p>
+</blockquote>
+<ul>
+<li>为外部目标 redirect 和转发请求，例如来自 web 端的 API 调用，或者流向遗留老系统的服务。</li>
+<li>为外部目标定义重试、超时和故障注入策略。</li>
+<li>添加一个运行在虚拟机的服务来扩展您的网格。</li>
+<li>从逻辑上添加来自不同集群的服务到网格，在 Kubernetes 上实现一个多集群 Istio 网格</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1alpha3</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ServiceEntry</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">svc-entry</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">hosts:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ext-svc.example.com</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">number:</span> <span class="number">443</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">https</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">HTTPS</span></span><br><span class="line">  <span class="attr">location:</span> <span class="string">MESH_EXTERNAL</span></span><br><span class="line">  <span class="attr">resolution:</span> <span class="string">DNS</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Sidecar"><a href="#Sidecar" class="headerlink" title="Sidecar"></a>Sidecar</h4><h2 id="弹性网络和测试"><a href="#弹性网络和测试" class="headerlink" title="弹性网络和测试"></a>弹性网络和测试</h2><h3 id="超时"><a href="#超时" class="headerlink" title="超时"></a>超时</h3><blockquote>
+<p>超时是 Envoy 代理等待来自给定服务的答复的时间量，以确保服务不会因为等待答复而无限期的挂起，并在可预测的时间范围内调用成功或失败。HTTP 请求的默认超时时间是 15 秒，这意味着如果服务在 15 秒内没有响应，调用将失败。</p>
+</blockquote>
+<p>配置 10s 超时时间</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1alpha3</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">VirtualService</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">ratings</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">hosts:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ratings</span></span><br><span class="line">  <span class="attr">http:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">route:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">            <span class="attr">host:</span> <span class="string">ratings</span></span><br><span class="line">            <span class="attr">subset:</span> <span class="string">v1</span></span><br><span class="line">      <span class="attr">timeout:</span> <span class="string">10s</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="重试"><a href="#重试" class="headerlink" title="重试"></a>重试</h3><blockquote>
+<p>重试设置指定如果初始调用失败，Envoy 代理尝试连接服务的最大次数。通过确保调用不会因为临时过载的服务或网络等问题而永久失败，重试可以提高服务可用性和应用程序的性能。</p>
+</blockquote>
+<p>配置最多重试 3 次， 2s 超时</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1alpha3</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">VirtualService</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">ratings</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">hosts:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ratings</span></span><br><span class="line">  <span class="attr">http:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">route:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">            <span class="attr">host:</span> <span class="string">ratings</span></span><br><span class="line">            <span class="attr">subset:</span> <span class="string">v1</span></span><br><span class="line">      <span class="attr">retries:</span></span><br><span class="line">        <span class="attr">attempts:</span> <span class="number">3</span></span><br><span class="line">        <span class="attr">perTryTimeout:</span> <span class="string">2s</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="熔断器"><a href="#熔断器" class="headerlink" title="熔断器"></a>熔断器</h3><blockquote>
+<p>设置一个对服务中的单个主机调用的限制，例如并发连接的数量或对该主机调用失败的次数。一旦限制被触发，熔断器就会“跳闸”并停止连接到该主机。使用熔断模式可以快速失败而不必让客户端尝试连接到过载或有故障的主机。</p>
+</blockquote>
+<p>限制工作负载的并发连接为 100</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1alpha3</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">DestinationRule</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">reviews</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">reviews</span></span><br><span class="line">  <span class="attr">subsets:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">v1</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">version:</span> <span class="string">v1</span></span><br><span class="line">      <span class="attr">trafficPolicy:</span></span><br><span class="line">        <span class="attr">connectionPool:</span></span><br><span class="line">          <span class="attr">tcp:</span></span><br><span class="line">            <span class="attr">maxConnections:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="故障注入"><a href="#故障注入" class="headerlink" title="故障注入"></a>故障注入</h3><blockquote>
+<p>故障注入是一种将错误引入系统以确保系统能够承受并从错误条件中恢复的测试方法<br>支持配置两种故障：</p>
+<ul>
+<li>延迟：延迟是时间故障。它们模拟增加的网络延迟或一个超载的上游服务。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>终止：终止是崩溃失败。他们模仿上游服务的失败。终止通常以 HTTP 错误码或 TCP 连接失败的形式出现。</li>
+</ul>
+</blockquote>
+<p>下面的虚拟服务为千分之一的访问  <code>ratings</code>  服务的请求配置了一个 5 秒的延迟</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.istio.io/v1alpha3</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">VirtualService</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">ratings</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">hosts:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ratings</span></span><br><span class="line">  <span class="attr">http:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">fault:</span></span><br><span class="line">        <span class="attr">delay:</span></span><br><span class="line">          <span class="attr">percentage:</span></span><br><span class="line">            <span class="attr">value:</span> <span class="number">0.1</span></span><br><span class="line">          <span class="attr">fixedDelay:</span> <span class="string">5s</span></span><br><span class="line">      <span class="attr">route:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">destination:</span></span><br><span class="line">            <span class="attr">host:</span> <span class="string">ratings</span></span><br><span class="line">            <span class="attr">subset:</span> <span class="string">v1</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://guodawn.github.io/blog/2021/07/17/yuque/Istio/" data-id="ckr7v6k3g0000386i46ozf8pt" data-title="Istio" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2021/07/17/yuque/grpc/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          grpc
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2021/07/17/yuque/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">基本概念</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/07/">July 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/sonarqube/">sonarqube</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/">自定义镜像</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/consul/">consul</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/golang%E4%B8%AD%E7%9A%84%E9%99%B7%E9%98%B1/">golang中的陷阱</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/grpc/">grpc</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

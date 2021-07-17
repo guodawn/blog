@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>consul | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="官网：https:&#x2F;&#x2F;learn.hashicorp.com&#x2F;consul install1234567$ brew tap hashicorp&#x2F;tap$ brew install hashicorp&#x2F;tap&#x2F;consul# verify installation$ consul  command12345678## start a consul agent in dev modeconsul a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="consul">
+<meta property="og:url" content="https://guodawn.github.io/blog/2021/07/17/yuque/consul/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="官网：https:&#x2F;&#x2F;learn.hashicorp.com&#x2F;consul install1234567$ brew tap hashicorp&#x2F;tap$ brew install hashicorp&#x2F;tap&#x2F;consul# verify installation$ consul  command12345678## start a consul agent in dev modeconsul a">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/1904465/1610676687950-f202c4e4-e0d8-48db-b2df-843ff412348f.png#align=left&display=inline&height=452&margin=%5Bobject%20Object%5D&originHeight=452&originWidth=1001&size=0&status=done&style=none&width=1001">
+<meta property="og:image" content="https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*NNs6TKOR3isAAAAAAAAAAABkARQnAQ">
+<meta property="article:published_time" content="2021-07-17T14:22:01.000Z">
+<meta property="article:modified_time" content="2021-07-17T14:23:56.504Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2021/png/1904465/1610676687950-f202c4e4-e0d8-48db-b2df-843ff412348f.png#align=left&display=inline&height=452&margin=%5Bobject%20Object%5D&originHeight=452&originWidth=1001&size=0&status=done&style=none&width=1001">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://guodawn.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-yuque/consul" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/07/17/yuque/consul/" class="article-date">
+  <time class="dt-published" datetime="2021-07-17T14:22:01.000Z" itemprop="datePublished">2021-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      consul
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>官网：<a target="_blank" rel="noopener" href="https://learn.hashicorp.com/consul">https://learn.hashicorp.com/consul</a></p>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew tap hashicorp/tap</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew install hashicorp/tap/consul</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> verify installation</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> consul</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="command"><a href="#command" class="headerlink" title="command"></a>command</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># start a consul agent in dev mode</span></span></span><br><span class="line">consul agent -dev</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># list the datacenter members</span></span></span><br><span class="line">consul members</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># stop the agent gracefully</span></span></span><br><span class="line">consul leave</span><br></pre></td></tr></table></figure>
+
+<h2 id="register-service"><a href="#register-service" class="headerlink" title="register service"></a>register service</h2><ul>
+<li>define a service</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># config path</span></span></span><br><span class="line">mkdir ./consul.d</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># config file</span></span></span><br><span class="line">echo &#x27;&#123;</span><br><span class="line">  &quot;service&quot;: &#123;</span><br><span class="line">    &quot;name&quot;: &quot;web&quot;,</span><br><span class="line">    &quot;tags&quot;: [</span><br><span class="line">      &quot;rails&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;port&quot;: 80</span><br><span class="line">  &#125;</span><br><span class="line">&#125;&#x27; &gt; ./consul.d/web.json</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># restart the agent with flag -enable-script-checks and -config-dir</span></span></span><br><span class="line"></span><br><span class="line">consul agent -dev -enable-script-checks -config-dir=./consul.d</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>query service</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># query the web service using dns interface</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># the DNS name for a service registed with Consul is NAME.service.consul, where NAME is the name you used to register the service</span></span></span><br><span class="line">dig @127.0.0.1 -p 8600 web.service.consul</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># you also can DNS interface to filter service by tags TAG.NAME.service.consul.</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># you can also query for the service by HTTP API</span></span></span><br><span class="line">curl http://localhost:8500/v1/catalog/service/web</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># look for only healthy instances</span></span></span><br><span class="line">curl &#x27;http://localhost:8500/v1/health/service/web?passing&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>update service</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># update config</span></span></span><br><span class="line">echo &#x27;&#123;</span><br><span class="line">  &quot;service&quot;: &#123;</span><br><span class="line">    &quot;name&quot;: &quot;web&quot;,</span><br><span class="line">    &quot;tags&quot;: [</span><br><span class="line">      &quot;rails&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;port&quot;: 80,</span><br><span class="line">    &quot;check&quot;: &#123;</span><br><span class="line">      &quot;args&quot;: [</span><br><span class="line">        &quot;curl&quot;,</span><br><span class="line">        &quot;localhost&quot;</span><br><span class="line">      ],</span><br><span class="line">      &quot;interval&quot;: &quot;10s&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;&#x27; &gt; ./consul.d/web.json</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># reload consul</span></span></span><br><span class="line">consul reload</span><br></pre></td></tr></table></figure>
+
+<h2 id="Connect-Service"><a href="#Connect-Service" class="headerlink" title="Connect Service"></a>Connect Service</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># sidecar service config</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># the connect just added ,this empty configuration notifies Consul to register a sidcar proxy for this progress on a dynamiclly allocatd port.</span></span></span><br><span class="line">echo &#x27;&#123;</span><br><span class="line">  &quot;service&quot;: &#123;</span><br><span class="line">    &quot;name&quot;: &quot;socat&quot;,</span><br><span class="line">    &quot;port&quot;: 8181,</span><br><span class="line">    &quot;connect&quot;: &#123;</span><br><span class="line">      &quot;sidecar_service&quot;: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;&#x27; &gt; ./consul.d/socat.json</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># start proxy</span></span></span><br><span class="line">consul connect proxy -sidecar-for socat</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># regist another service and proxy depending on socat.</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># this regist a sidecar proxy for the service web that will listen on port 9191 to establish connection to socat.</span></span></span><br><span class="line">echo &#x27;&#123;</span><br><span class="line">  &quot;service&quot;: &#123;</span><br><span class="line">    &quot;name&quot;: &quot;web&quot;,</span><br><span class="line">    &quot;connect&quot;: &#123;</span><br><span class="line">      &quot;sidecar_service&quot;: &#123;</span><br><span class="line">        &quot;proxy&quot;: &#123;</span><br><span class="line">          &quot;upstreams&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">              &quot;destination_name&quot;: &quot;socat&quot;,</span><br><span class="line">              &quot;local_bind_port&quot;: 9191</span><br><span class="line">            &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;&#x27; &gt; ./consul.d/web.json</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># start proxy</span></span></span><br><span class="line">consul connect proxy -sidecar-for web</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># after modify the config you must reload Consul</span></span></span><br><span class="line">consul reload</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># create a intention to deny access fron web to socat</span></span></span><br><span class="line"></span><br><span class="line">consul intention create -deny web socat</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># delete consul</span></span></span><br><span class="line">consul intention delete web socat</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Consul-KV"><a href="#Consul-KV" class="headerlink" title="Consul KV"></a>Consul KV</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">consul kv put key value</span><br><span class="line"></span><br><span class="line">consul kv get key</span><br><span class="line">consul kv delete key</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Consul-UI"><a href="#Consul-UI" class="headerlink" title="Consul UI"></a>Consul UI</h2><p><a target="_blank" rel="noopener" href="http://localhost:8500/ui">http://localhost:8500/ui</a></p>
+<h2 id="consul-集群"><a href="#consul-集群" class="headerlink" title="consul 集群"></a>consul 集群</h2><p>client +server 模式架构图<br><img src="https://cdn.nlark.com/yuque/0/2021/png/1904465/1610676687950-f202c4e4-e0d8-48db-b2df-843ff412348f.png#align=left&display=inline&height=452&margin=%5Bobject%20Object%5D&originHeight=452&originWidth=1001&size=0&status=done&style=none&width=1001"></p>
+<ol>
+<li>部署集群。首先需要有一个正常的 Consul 集群，有 Server，有 Leader。这里在服务器 Server1、Server2、Server3 上分别部署了 Consul Server</li>
+<li>选举 Leader 节点。假设他们选举了 Server2 上的 Consul Server 节点为 Leader。这些服务器上最好只部署 Consul 程序，以尽量维护 Consul Server 的稳定</li>
+<li>注册服务。然后在服务器 Server4 和 Server5 上通过 Consul Client 分别注册 Service A、B、C，这里每个 Service 分别部署在了两个服务器上，这样可以避免 Service 的单点问题。服务注册到 Consul 可以通过 HTTP API�?500 端口）的方式，也可以通过 Consul 配置文件的方式</li>
+<li>Consul client 转发注册消息。Consul Client 可以认为是无状态的，它将注册信息通过 RPC 转发到 Consul Server，服务信息保存在 Server 的各个节点中，并且通过 Raft 实现了强一致性</li>
+<li>服务发起通信请求。最后在服务器 Server6 中 Program D 需要访问 Service B，这时候 Program D 首先访问本机 Consul Client 提供的 HTTP API，本机 Client 会将请求转发</li>
+</ol>
+<h2 id="Gossip-协议"><a href="#Gossip-协议" class="headerlink" title="Gossip 协议"></a>Gossip 协议</h2><p>传统的监控，如 ceilometer，由于每个节点都会向 server 报告状态，随着节点数量的增加 server 的压力随之增大。分布式健康检查可以解决这类性能瓶颈，降节点数量从数百台扩至数千台，甚至更多。<br>Agent 在每台节点上运行，可以在每个 Agent 上添加一些健康检查的动作，Agent 会周期性的运行这些动作。用户可以添加脚本或者请求一个 URL 链接。一旦有健康检查报告失败，Agent 就把这个事件上报给服务器节点。用户可以在服务器节点上订阅健康检查事件，并处理这些报错消息。<br>在所有的 Agent 之间（包括服务器模式和普通模式）运行着 Gossip 协议。服务器节点和普通 Agent 都会加入这个 Gossip 集群，收发 Gossip 消息。每隔一段时间，每个节点都会随机选择几个节点发送 Gossip 消息，其他节点会再次随机选择其他几个节点接力发送消息。这样一段时间过后，整个集群都能收到这条消息。<br><a target="_blank" rel="noopener" href="https://www.yuque.com/chenguang-k0827/blog/ag1d8z?_lake_card=%7B%22status%22:%22done%22,%22name%22:%223cd1521c-2355-11eb-905e-ca0d7949bec0.mp4%22,%22size%22:135143,%22percent%22:100,%22taskId%22:%22guaNfRBAZ8Tp%22,%22margin%22:true,%22id%22:%22tn0bx%22,%22videoId%22:%22inputs/prod/yuque/2021/1904465/mp4/1610677960417-11320203-beb1-4290-ac96-1ee2652d02b5.mp4%22,%22card%22:%22video%22%7D#tn0bx"><img src="https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*NNs6TKOR3isAAAAAAAAAAABkARQnAQ" alt="3cd1521c-2355-11eb-905e-ca0d7949bec0.mp4 (131.98KB)"></a></p>
+<h3 id="Raft-算法"><a href="#Raft-算法" class="headerlink" title="Raft 算法"></a>Raft 算法</h3><p>raft 集群中的每个节点都可以根据集群运行的情况在三种状态间切换：follower, candidate 与 leader。leader 向 follower 同步日志，follower 只从 leader 处获取日志。在节点初始启动时，节点的 raft 状态机将处于 follower 状态并被设定一个 election timeout，如果在这一时间周期内没有收到来自 leader 的 heartbeat，节点将发起选举：节点在将自己的状态切换为 candidate 之后，向集群中其它 follower 节点发送请求，询问其是否选举自己成为 leader。当收到来自集群中过半数节点的接受投票后，节点即成为 leader，开始接收保存 client 的数据并向其它的 follower 节点同步日志。leader 节点依靠定时向 follower 发送 heartbeat 来保持其地位。任何时候如果其它 follower 在 election timeout 期间都没有收到来自 leader 的 heartbeat，同样会将自己的状态切换为 candidate 并发起选举。每成功选举一次，新 leader 的步进数都会比之前 leader 的步进数大 1。<br>Raft 一致性算法处理日志复制以保证强一致性。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://guodawn.github.io/blog/2021/07/17/yuque/consul/" data-id="ckr7v6k3l0003386i4be59786" data-title="consul" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2021/07/17/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          自定义镜像
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2021/07/17/yuque/golang%E4%B8%AD%E7%9A%84%E9%99%B7%E9%98%B1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">golang中的陷阱</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/07/">July 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/sonarqube/">sonarqube</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/">自定义镜像</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/consul/">consul</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/golang%E4%B8%AD%E7%9A%84%E9%99%B7%E9%98%B1/">golang中的陷阱</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/grpc/">grpc</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

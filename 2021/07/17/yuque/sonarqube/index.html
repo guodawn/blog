@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>sonarqube | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="SonarQube  是一款用于代码质量管理的开源工具，它主要用于管理源代码的质量。 通过插件形式，可以支持众多计算机语言，比如 php, java, C#, go，C&#x2F;C++, PL&#x2F;SQL, Cobol, JavaScrip, Groovy 等。sonar 可以通过 PMD,CheckStyle,Findbugs 等等代码规则检测工具来检测你的代码，帮助你发现代码的漏洞，Bug，坏味道等信息。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sonarqube">
+<meta property="og:url" content="https://guodawn.github.io/blog/2021/07/17/yuque/sonarqube/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="SonarQube  是一款用于代码质量管理的开源工具，它主要用于管理源代码的质量。 通过插件形式，可以支持众多计算机语言，比如 php, java, C#, go，C&#x2F;C++, PL&#x2F;SQL, Cobol, JavaScrip, Groovy 等。sonar 可以通过 PMD,CheckStyle,Findbugs 等等代码规则检测工具来检测你的代码，帮助你发现代码的漏洞，Bug，坏味道等信息。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/1904465/1615964700139-0eb6c522-4dad-4e91-bf24-ce11771fee64.png#align=left&display=inline&height=564&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1128&originWidth=1962&size=863351&status=done&style=none&width=981">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/1904465/1615964717340-60ceec68-5f9e-40a8-8f49-8d6b3022ff88.png#align=left&display=inline&height=270&margin=%5Bobject%20Object%5D&name=image.png&originHeight=540&originWidth=2692&size=343855&status=done&style=none&width=1346">
+<meta property="article:published_time" content="2021-07-17T14:23:12.000Z">
+<meta property="article:modified_time" content="2021-07-17T14:23:56.466Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2021/png/1904465/1615964700139-0eb6c522-4dad-4e91-bf24-ce11771fee64.png#align=left&display=inline&height=564&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1128&originWidth=1962&size=863351&status=done&style=none&width=981">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://guodawn.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-yuque/sonarqube" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2021/07/17/yuque/sonarqube/" class="article-date">
+  <time class="dt-published" datetime="2021-07-17T14:23:12.000Z" itemprop="datePublished">2021-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      sonarqube
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="http://www.sonarqube.org/">SonarQube</a>  是一款用于代码质量管理的开源工具，它主要用于管理源代码的质量。 通过插件形式，可以支持众多计算机语言，比如 php, java, C#, go，C/C++, PL/SQL, Cobol, JavaScrip, Groovy 等。sonar 可以通过 PMD,CheckStyle,Findbugs 等等代码规则检测工具来检测你的代码，帮助你发现代码的漏洞，Bug，坏味道等信息。</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="指标定义"><a href="#指标定义" class="headerlink" title="指标定义"></a>指标定义</h1><h3 id="Complexity-复杂度"><a href="#Complexity-复杂度" class="headerlink" title="Complexity(复杂度)"></a>Complexity(复杂度)</h3><blockquote>
+<p>Java: Keywords incrementing the complexity: if, for, while, case, catch, throw, &amp;&amp;, ||, ?<br>PHP: Complexity is incremented by one for each: function (i.e non-abstract and non-anonymous constructors, functions, procedures or methods), if, short-circuit (AKA lazy) logical conjunction (&amp;&amp;), short-circuit (AKA lazy) logical disjunction (||), ternary conditional expressions, loop, case clause of a switch statement, throw and catch statement, go to statement (only for PHP)<br>关于复杂度的一篇 paper ：<a target="_blank" rel="noopener" href="https://www.sonarsource.com/docs/CognitiveComplexity.pdf">https://www.sonarsource.com/docs/CognitiveComplexity.pdf</a></p>
+</blockquote>
+<h3 id="Duplications（重复）"><a href="#Duplications（重复）" class="headerlink" title="Duplications（重复）"></a>Duplications（重复）</h3><blockquote>
+<p>There should be at least 10 successive and duplicated statements whatever the number of tokens and lines. Differences in indentation and in string literals are ignored while detecting duplications.</p>
+</blockquote>
+<h3 id="Issue-（问题）"><a href="#Issue-（问题）" class="headerlink" title="Issue （问题）"></a>Issue （问题）</h3><h4 id="issue-类型"><a href="#issue-类型" class="headerlink" title="issue 类型"></a><code>issue 类型</code></h4><ul>
+<li>Code Smell</li>
+<li>Bugs</li>
+<li>Vulnerability</li>
+</ul>
+<h4 id="issue-级别"><a href="#issue-级别" class="headerlink" title="issue 级别"></a>issue 级别</h4><ul>
+<li><strong>BLOCKER（阻断）</strong></li>
+</ul>
+<p>影响应用运行，需要立即修复。比如： memory leak, unclosed JDBC connection。**</p>
+<ul>
+<li><strong>CRITICAL （严重）</strong></li>
+</ul>
+<p>对应用运行影响较小，需要立即修复。 比如一些安全问题 sql 注入等</p>
+<ul>
+<li><strong>MAJOR （主要）</strong></li>
+</ul>
+<p>主要是开发中的一些代码质量问题，包括代码复杂度过高，重复代码块等</p>
+<ul>
+<li><strong>MINOR（次要）</strong></li>
+<li><strong>INFO（提示）</strong></li>
+</ul>
+<h3 id="Maintainability（可维护性）"><a href="#Maintainability（可维护性）" class="headerlink" title="Maintainability（可维护性）"></a>Maintainability（可维护性）</h3><p>Code Smell (坏味道)</p>
+<h3 id="Reliability-可靠性"><a href="#Reliability-可靠性" class="headerlink" title="Reliability(可靠性)"></a>Reliability(可靠性)</h3><p>Bugs</p>
+<h3 id="Security（安全性）"><a href="#Security（安全性）" class="headerlink" title="Security（安全性）"></a>Security（安全性）</h3><p>Vulnerability（漏洞） Security Hotspot （安全热点）</p>
+<h3 id="Size"><a href="#Size" class="headerlink" title="Size"></a>Size</h3><ul>
+<li>Classes</li>
+<li>Comment lines</li>
+<li>Code lines</li>
+<li>Functions</li>
+</ul>
+<h3 id="Quality-Rule"><a href="#Quality-Rule" class="headerlink" title="Quality Rule"></a>Quality Rule</h3><ul>
+<li>0 Bugs</li>
+<li>0 Vulnerability</li>
+<li>很少的 Code Smells</li>
+<li>不超过规则配置的 Complexity</li>
+<li>不超过规则配置的 Duplications</li>
+<li>0 Block issue</li>
+<li>0 Critical issue</li>
+<li>0 Major issue</li>
+</ul>
+<p>**</p>
+<h1 id="SonarLint-插件"><a href="#SonarLint-插件" class="headerlink" title="SonarLint 插件"></a>SonarLint 插件</h1><p><img src="https://cdn.nlark.com/yuque/0/2021/png/1904465/1615964700139-0eb6c522-4dad-4e91-bf24-ce11771fee64.png#align=left&display=inline&height=564&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1128&originWidth=1962&size=863351&status=done&style=none&width=981" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/1904465/1615964717340-60ceec68-5f9e-40a8-8f49-8d6b3022ff88.png#align=left&display=inline&height=270&margin=%5Bobject%20Object%5D&name=image.png&originHeight=540&originWidth=2692&size=343855&status=done&style=none&width=1346" alt="image.png"></p>
+<h1 id="具体规范"><a href="#具体规范" class="headerlink" title="具体规范"></a>具体规范</h1><h3 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h3><p>** “BigDecimal(double)” should not be used**<br>Because of floating point imprecision, you’re unlikely to get the value you expect from the <code>BigDecimal(double)</code> constructor.<br><strong>不兼容代码示例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> d = <span class="number">1.1</span>;</span><br><span class="line"></span><br><span class="line">BigDecimal bd1 = <span class="keyword">new</span> BigDecimal(d); <span class="comment">// Noncompliant; see comment above</span></span><br><span class="line">BigDecimal bd2 = <span class="keyword">new</span> BigDecimal(<span class="number">1.1</span>); <span class="comment">// Noncompliant; same result</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> d = <span class="number">1.1</span>;</span><br><span class="line"></span><br><span class="line">BigDecimal bd1 = BigDecimal.valueOf(d);</span><br><span class="line">BigDecimal bd2 = <span class="keyword">new</span> BigDecimal(<span class="string">&quot;1.1&quot;</span>); <span class="comment">// using String constructor will result in precise value</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>Double Brace Initialization should not be used</strong></p>
+<p>Because Double Brace Initialization (DBI) creates an anonymous class with a reference to the instance of the owning object, its use can lead to memory leaks if the anonymous inner class is returned and held by other objects. Even when there’s no leak, DBI is so obscure that it’s bound to confuse most maintainers.</p>
+<p><strong>不兼容代码示例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map source = <span class="keyword">new</span> HashMap()&#123;&#123; <span class="comment">// Noncompliant</span></span><br><span class="line">    put(<span class="string">&quot;firstName&quot;</span>, <span class="string">&quot;John&quot;</span>);</span><br><span class="line">    put(<span class="string">&quot;lastName&quot;</span>, <span class="string">&quot;Smith&quot;</span>);</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Map source = <span class="keyword">new</span> HashMap();</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">source.put(<span class="string">&quot;firstName&quot;</span>, <span class="string">&quot;John&quot;</span>);</span><br><span class="line">source.put(<span class="string">&quot;lastName&quot;</span>, <span class="string">&quot;Smith&quot;</span>);</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Floating point numbers should not be tested for equality</strong><br>Floating point math is imprecise because of the challenges of storing such values in a binary representation. Even worse, floating point math is not associative; push a <code>float</code> or a <code>double</code> through a series of simple mathematical operations and the answer will be different based on the order of those operation because of the rounding that takes place at each step.</p>
+<p><strong>不兼容代码示例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> f1 = <span class="number">10.222222225f</span>;</span><br><span class="line">        <span class="keyword">float</span> f2 = <span class="number">10.222222229f</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (f1 == f2) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;equal&quot;</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> f1 = <span class="number">10.222222225f</span>;</span><br><span class="line">        <span class="keyword">float</span> f2 = <span class="number">10.222222229f</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!(Math.abs(f1-f2) &gt; <span class="number">0</span>)) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;equal&quot;</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Invalid “Date” values should not be used</strong><br>Whether the valid value ranges for <code>Date</code> fields start with 0 or 1 varies by field. For instance, month starts at 0, and day of month starts at 1. Enter a date value that goes past the end of the valid range, and the date will roll without error or exception. For instance, enter 12 for month, and you’ll get January of the following year.</p>
+<p><strong>不兼容代码示例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Date d = <span class="keyword">new</span> Date();</span><br><span class="line">d.setDate(<span class="number">25</span>);</span><br><span class="line">d.setYear(<span class="number">2014</span>);</span><br><span class="line">d.setMonth(<span class="number">12</span>);  <span class="comment">// Noncompliant; rolls d into the next year</span></span><br><span class="line"></span><br><span class="line">Calendar c = <span class="keyword">new</span> GregorianCalendar(<span class="number">2014</span>, <span class="number">12</span>, <span class="number">25</span>);  <span class="comment">// Noncompliant</span></span><br><span class="line"><span class="keyword">if</span> (c.get(Calendar.MONTH) == <span class="number">12</span>) &#123;  <span class="comment">// Noncompliant; invalid comparison</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Date d = <span class="keyword">new</span> Date();</span><br><span class="line">d.setDate(<span class="number">25</span>);</span><br><span class="line">d.setYear(<span class="number">2014</span>);</span><br><span class="line">d.setMonth(<span class="number">11</span>);</span><br><span class="line"></span><br><span class="line">Calendar c = <span class="keyword">new</span> <span class="function">Gregorian <span class="title">Calendar</span><span class="params">(<span class="number">2014</span>, <span class="number">11</span>, <span class="number">25</span>)</span></span>;</span><br><span class="line"><span class="keyword">if</span> (c.get(Calendar.MONTH) == <span class="number">11</span>) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Null pointers should not be dereferenced</strong></p>
+<p>A reference to <code>null</code> should never be dereferenced/accessed. Doing so will cause a <code>NullPointerException</code> to be thrown. At best, such an exception will cause abrupt program termination. At worst, it could expose debugging information that would be useful to an attacker, or it could allow an attacker to bypass security measures.</p>
+<p><strong>不兼容代码示例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getName</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isNameEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> getName().length() == <span class="number">0</span>; <span class="comment">// Noncompliant; the result of getName() could be null, but isn&#x27;t null-checked</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong><br><strong>Silly equality checks should not be made</strong><br>Comparisons of dissimilar types will always return false. The comparison and all its dependent code can simply be removed. This includes:</p>
+<ul>
+<li>comparing an object with null</li>
+<li>comparing an object with an unrelated primitive (E.G. a string with an int)</li>
+<li>comparing unrelated classes</li>
+<li>comparing an unrelated <code>class</code> and <code>interface</code></li>
+<li>comparing unrelated <code>interface</code> types</li>
+<li>comparing an array to a non-array</li>
+<li>comparing two arrays</li>
+</ul>
+<p><strong>Variables should not be self-assigned</strong></p>
+<p>There is no reason to re-assign a variable to itself. Either this statement is redundant and should be removed, or the re-assignment is a mistake and some other value or variable was intended for the assignment instead.</p>
+<p><strong>不兼容代码示例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">  name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Week Year (“YYYY”) should not be used for date formatting</strong><br>Few developers are aware of the difference between <code>Y</code> for “Week year” and <code>y</code> for Year when formatting and parsing a date with <code>SimpleDateFormat</code>. That’s likely because for most dates, Week year and Year are the same, so testing at any time other than the first or last week of the year will yield the same value for both <code>y</code> and <code>Y</code>. But in the last week of December and the first week of January, you may get unexpected results.</p>
+<p>不兼容代码示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Date date = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy/MM/dd&quot;</span>).parse(<span class="string">&quot;2015/12/31&quot;</span>);</span><br><span class="line">String result = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;YYYY/MM/dd&quot;</span>).format(date);   <span class="comment">//Noncompliant; yields &#x27;2016/12/31&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>兼容解决方案</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Date date = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy/MM/dd&quot;</span>).parse(<span class="string">&quot;2015/12/31&quot;</span>);</span><br><span class="line">String result = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy/MM/dd&quot;</span>).format(date);   <span class="comment">//Yields &#x27;2015/12/31&#x27; as expected</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Code-Smell"><a href="#Code-Smell" class="headerlink" title="Code Smell"></a>Code Smell</h3><p><strong>Wildcard imports should not be used</strong></p>
+<p><strong>Useless imports should be removed</strong><br>**<br><strong>Unused method parameters should be removed</strong></p>
+<p><strong>Unused local variables should be removed</strong></p>
+<p><strong>Classes should not be too complex (max=200)</strong><br>The Cyclomatic Complexity is measured by the number of <code>&amp;&amp;</code> and <code>||</code> operators and <code>if</code>, <code>while</code>, <code>do</code>, <code>for</code>, <code>?:</code>, <code>catch</code>, <code>switch</code>, <code>case</code>, <code>return</code> and <code>throw</code> statements in the body of a class plus one for each constructor, method, static initializer, or instance initializer in the class. The last return statement in method, if exists, is not taken into account.</p>
+<p><strong>Classes should not have too many methods(max=35)</strong><br><strong>Cognitive Complexity of methods should not be too high (max=15)</strong><br><strong>Files should not have too many lines of code(max=750)</strong><br><strong>Lines should not be too long (max=120)</strong><br><strong>Collection.isEmpty() should be used to test for emptiness</strong><br><strong>Methods should not be too complex(max=10)</strong><br><strong>Methods should not have too many lines(max=75)</strong><br><strong>Methods should not have too many parameters(max=7)</strong><br>Methods should not have too many return statements (max=3)</p>
+<p><strong>“catch” clauses should do more than rethrow</strong><br>A <code>catch</code> clause that only rethrows the caught exception has the same effect as omitting the <code>catch</code> altogether and letting it bubble up automatically, but with more code and the additional detriment of leaving maintainers scratching their heads.<br><strong>不兼容代码示例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">readFile</span><span class="params">(File f)</span> </span>&#123;</span><br><span class="line">  StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    FileReader fileReader = <span class="keyword">new</span> FileReader(fileName);</span><br><span class="line">    BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(fileReader);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>((line = bufferedReader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">catch</span> (IOException e) &#123;  <span class="comment">// Noncompliant</span></span><br><span class="line">    <span class="keyword">throw</span> e;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">readFile</span><span class="params">(File f)</span> </span>&#123;</span><br><span class="line">  StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    FileReader fileReader = <span class="keyword">new</span> FileReader(fileName);</span><br><span class="line">    BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(fileReader);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>((line = bufferedReader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    logger.LogError(e);</span><br><span class="line">    <span class="keyword">throw</span> e;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>“close()” calls should not be redundant</strong></p>
+<p>Java 7’s try-with-resources structure automatically handles closing the resources that the <code>try</code> itself opens. Thus, adding an explicit <code>close()</code> call is redundant and potentially confusing.</p>
+<p><strong>不兼容代码示例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (PrintWriter writer = <span class="keyword">new</span> PrintWriter(process.getOutputStream())) &#123;</span><br><span class="line">  String contents = file.contents();</span><br><span class="line">  writer.write(<span class="keyword">new</span> Gson().toJson(<span class="keyword">new</span> MyObject(contents)));</span><br><span class="line">  writer.flush();</span><br><span class="line">  writer.close();  <span class="comment">// Noncompliant</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (PrintWriter writer = <span class="keyword">new</span> PrintWriter(process.getOutputStream())) &#123;</span><br><span class="line">  String contents = file.contents();</span><br><span class="line">  writer.write(<span class="keyword">new</span> Gson().toJson(<span class="keyword">new</span> MyObject(contents)));</span><br><span class="line">  writer.flush();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>“entrySet()” should be iterated when both the key and value are needed</strong><br>When only the keys from a map are needed in a loop, iterating the <code>keySet</code> makes sense. But when both the key and the value are needed, it’s more efficient to iterate the <code>entrySet</code>, which will give access to both the key and value, instead.</p>
+<p>不兼容代码示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomethingWithMap</span><span class="params">(Map&lt;String,Object&gt; map)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (String key : map.keySet()) &#123;  <span class="comment">// Noncompliant; for each key the value is retrieved</span></span><br><span class="line">    Object value = map.get(key);</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomethingWithMap</span><span class="params">(Map&lt;String,Object&gt; map)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (Map.Entry&lt;String,Object&gt; entry : map.entrySet()) &#123;</span><br><span class="line">    String key = entry.getKey();</span><br><span class="line">    Object value = entry.getValue();</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><p><strong>“Exception” should not be caught when not required by called methods</strong></p>
+<p>Catching <code>Exception</code> seems like an efficient way to handle multiple possible exceptions. Unfortunately, it traps all exception types, both checked and runtime exceptions, thereby casting too broad a net. Indeed, was it really the intention of developers to also catch runtime exceptions? To prevent any misunderstanding, if both checked and runtime exceptions are really expected to be caught, they should be explicitly listed in the <code>catch</code> clause.</p>
+<p><strong>不兼容代码示例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// do something that might throw an UnsupportedDataTypeException or UnsupportedEncodingException</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123; <span class="comment">// Noncompliant</span></span><br><span class="line">  <span class="comment">// log exception ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>兼容解决方案</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// do something</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (UnsupportedEncodingException|UnsupportedDataTypeException|RuntimeException e) &#123;</span><br><span class="line">  <span class="comment">// log exception ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>“java.time” classes should be used for dates and times</strong><br>The old, much-derided <code>Date</code> and <code>Calendar</code> classes have always been confusing and difficult to use properly, particularly in a multi-threaded context. <code>JodaTime</code> has long been a popular alternative, but now an even better option is built-in. Java 8’s JSR 310 implementation offers specific classes for:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Class</th>
+<th align="center">Use for</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">LocalDate</td>
+<td align="center">a date, without time of day, offset, or zone</td>
+</tr>
+<tr>
+<td align="center">LocalTime</td>
+<td align="center">the time of day, without date, offset, or zone</td>
+</tr>
+<tr>
+<td align="center">LocalDateTime</td>
+<td align="center">the date and time, without offset, or zone</td>
+</tr>
+<tr>
+<td align="center">OffsetDate</td>
+<td align="center">a date with an offset such as +02:00, without time of day, or zone</td>
+</tr>
+<tr>
+<td align="center">OffsetTime</td>
+<td align="center">the time of day with an offset such as +02:00, without date, or zone</td>
+</tr>
+<tr>
+<td align="center">OffsetDateTime</td>
+<td align="center">the date and time with an offset such as +02:00, without a zone</td>
+</tr>
+<tr>
+<td align="center">ZonedDateTime</td>
+<td align="center">the date and time with a time zone and offset</td>
+</tr>
+<tr>
+<td align="center">YearMonth</td>
+<td align="center">a year and month</td>
+</tr>
+<tr>
+<td align="center">MonthDay</td>
+<td align="center">month and day</td>
+</tr>
+<tr>
+<td align="center">Year/MonthOfDay/DayOfWeek/…</td>
+<td align="center">classes for the important fields</td>
+</tr>
+<tr>
+<td align="center">DateTimeFields</td>
+<td align="center">stores a map of field-value pairs which may be invalid</td>
+</tr>
+<tr>
+<td align="center">Calendrical</td>
+<td align="center">access to the low-level API</td>
+</tr>
+<tr>
+<td align="center">Period</td>
+<td align="center">a descriptive amount of time, such as “2 months and 3 days”</td>
+</tr>
+</tbody></table>
+<p><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Date now = <span class="keyword">new</span> Date();  <span class="comment">// Noncompliant</span></span><br><span class="line">DateFormat df = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;dd.MM.yyyy&quot;</span>);</span><br><span class="line">Calendar christmas  = Calendar.getInstance();  <span class="comment">// Noncompliant</span></span><br><span class="line">christmas.setTime(df.parse(<span class="string">&quot;25.12.2020&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LocalDate now = LocalDate.now();  <span class="comment">// gets calendar date. no time component</span></span><br><span class="line">LocalTime now2 = LocalTime.now(); <span class="comment">// gets current time. no date component</span></span><br><span class="line">LocalDate christmas = LocalDate.of(<span class="number">2020</span>,<span class="number">12</span>,<span class="number">25</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>“NullPointerException” should not be caught</strong></p>
+<p><code>NullPointerException</code> should be avoided, not caught. Any situation in which <code>NullPointerException</code> is explicitly caught can easily be converted to a <code>null</code> test, and any behavior being carried out in the catch block can easily be moved to the “is null” branch of the conditional.</p>
+<p><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthPlus</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> len = <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    len += str.length();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">catch</span> (NullPointerException e) &#123;</span><br><span class="line">    log.info(<span class="string">&quot;argument was null&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>兼容解决方案</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthPlus</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> len = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (str != <span class="keyword">null</span>) &#123;</span><br><span class="line">    len += str.length();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    log.info(<span class="string">&quot;argument was null&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>“switch” statements should have “default” clauses</strong><br>The requirement for a final <code>default</code> clause is defensive programming. The clause should either take appropriate action, or contain a suitable comment as to why no action is taken.</p>
+<p><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (param) &#123;  <span class="comment">//missing default clause</span></span><br><span class="line">  <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">    doSomething();</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    doSomethingElse();</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (param) &#123;</span><br><span class="line">  <span class="keyword">default</span>: <span class="comment">// default clause should be the last one</span></span><br><span class="line">    error();</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">    doSomething();</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    doSomethingElse();</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (param) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">    doSomething();</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    doSomethingElse();</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    error();</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>“switch” statements should not have too many “case” clauses (30)</strong><br>When <code>switch</code> statements have large sets of <code>case</code> clauses, it is usually an attempt to map two sets of data. A real map structure would be more readable and maintainable, and should be used instead.</p>
+<p><strong>“toString()” should never be called on a String object</strong><br><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String message = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">System.out.println(message.toString()); <span class="comment">// Noncompliant;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String message = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">System.out.println(message);</span><br></pre></td></tr></table></figure>
+
+<p><strong>Abstract classes without fields should be converted to interfaces</strong></p>
+<p><strong>Case insensitive string comparisons should be made without intermediate upper or lower casing</strong><br>Using <code>toLowerCase()</code> or <code>toUpperCase()</code> to make case insensitive comparisons is inefficient because it requires the creation of temporary, intermediate <code>String</code> objects.</p>
+<p><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> result1 = foo.toUpperCase().equals(bar);             <span class="comment">// Noncompliant</span></span><br><span class="line"><span class="keyword">boolean</span> result2 = foo.equals(bar.toUpperCase());             <span class="comment">// Noncompliant</span></span><br><span class="line"><span class="keyword">boolean</span> result3 = foo.toLowerCase().equals(bar.LowerCase()); <span class="comment">// Noncompliant</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> result = foo.equalsIgnoreCase(bar);                  <span class="comment">// Compliant</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Classes from “xxx.*“ packages should not be used</strong><br><strong>Classes should not be coupled to too many other classes (Single Responsibility Principle)</strong><br><strong>不兼容代码示例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;                        <span class="comment">// Noncompliant - Foo depends on too many classes: T1, T2, T3, T4, T5, T6 and T7</span></span><br><span class="line">  T1 a1;                           <span class="comment">// Foo is coupled to T1</span></span><br><span class="line">  T2 a2;                           <span class="comment">// Foo is coupled to T2</span></span><br><span class="line">  T3 a3;                           <span class="comment">// Foo is coupled to T3</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> T4 <span class="title">compute</span><span class="params">(T5 a, T6 b)</span> </span>&#123;  <span class="comment">// Foo is coupled to T4, T5 and T6</span></span><br><span class="line">    T7 result = a.getResult(b);    <span class="comment">// Foo is coupled to T7</span></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Bar</span> </span>&#123;        <span class="comment">// Compliant - Bar depends on 2 classes: T8 and T9</span></span><br><span class="line">    T8 a8;</span><br><span class="line">    T9 a9;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Using <code>Collection.size()</code> to test for emptiness works, but using <code>Collection.isEmpty()</code> makes the code more readable and can be more performant. The time complexity of any <code>isEmpty()</code> method implementation should be <code>O(1)</code> whereas some implementations of <code>size()</code> can be <code>O(n)</code>.</p>
+<p><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (myCollection.size() == <span class="number">0</span>) &#123;  <span class="comment">// Noncompliant</span></span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (myCollection.isEmpty()) &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Empty arrays and collections should be returned instead of null</strong><br>Returning <code>null</code> instead of an actual array or collection forces callers of the method to explicitly test for nullity, making them more complex and less readable.<br>Moreover, in many cases, <code>null</code> is used as a synonym for empty.</p>
+<p>不兼容示例代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Result&gt; <span class="title">getResults</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">null</span>;                             <span class="comment">// Noncompliant</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Result[] getResults() &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">null</span>;                             <span class="comment">// Noncompliant</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  Result[] results = getResults();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (results != <span class="keyword">null</span>) &#123;                   <span class="comment">// Nullity test required to prevent NPE</span></span><br><span class="line">    <span class="keyword">for</span> (Result result: results) &#123;</span><br><span class="line">      <span class="comment">/* ... */</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Result&gt; <span class="title">getResults</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> Collections.emptyList();          <span class="comment">// Compliant</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Result[] getResults() &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Result[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (Result result: getResults()) &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Local constants should follow naming conventions for constants</strong><br>With the default regular expression <code>^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$</code>:</p>
+<p><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> <span class="keyword">int</span> local = <span class="number">42</span>;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> <span class="keyword">int</span> LOCAL = <span class="number">42</span>;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>String literals should not be duplicated</strong><br>Duplicated string literals make the process of refactoring error-prone, since you must be sure to update all occurrences.<br>On the other hand, constants can be referenced from many places, but only need to be updated in a single place.</p>
+<p><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  prepare(<span class="string">&quot;action1&quot;</span>);                              <span class="comment">// Noncompliant - &quot;action1&quot; is duplicated 3 times</span></span><br><span class="line">  execute(<span class="string">&quot;action1&quot;</span>);</span><br><span class="line">  release(<span class="string">&quot;action1&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SuppressWarning(&quot;all&quot;)</span>                            <span class="comment">// Compliant - annotations are excluded</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span> </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="meta">@SuppressWarning(&quot;all&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">method3</span><span class="params">(String a)</span> </span>&#123;</span><br><span class="line">  System.out.println(<span class="string">&quot;&#x27;&quot;</span> + a + <span class="string">&quot;&#x27;&quot;</span>);               <span class="comment">// Compliant - literal &quot;&#x27;&quot; has less than 5 characters and is excluded</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;                                       <span class="comment">// Compliant - literal &quot;&quot; has less than 5 characters and is excluded</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_1 = <span class="string">&quot;action1&quot;</span>;  <span class="comment">// Compliant</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  prepare(ACTION_1);                               <span class="comment">// Compliant</span></span><br><span class="line">  execute(ACTION_1);</span><br><span class="line">  release(ACTION_1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>String offset-based methods should be preferred for finding substrings from offsets</strong><br>Looking for a given substring starting from a specified offset can be achieved by such code: <code>str.substring(beginIndex).indexOf(char1)</code>. This works well, but it creates a new <code>String</code> for each call to the <code>substring</code> method. When this is done in a loop, a lot of <code>Strings</code> are created for nothing, which can lead to performance problems if <code>str</code> is large.</p>
+<p><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str.substring(beginIndex).indexOf(char1); <span class="comment">// Noncompliant; a new String is going to be created by &quot;substring&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.indexOf(char1, beginIndex);</span><br></pre></td></tr></table></figure>
+
+<p><strong>Strings literals should be placed on the left side when checking for equality</strong><br>It is preferable to place string literals on the left-hand side of an <code>equals()</code> or <code>equalsIgnoreCase()</code> method call.<br>This prevents null pointer exceptions from being raised, as a string literal can never be null by definition.</p>
+<p><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String myString = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;Equal? &quot;</span> + myString.equals(<span class="string">&quot;foo&quot;</span>));                        <span class="comment">// Noncompliant; will raise a NPE</span></span><br><span class="line">System.out.println(<span class="string">&quot;Equal? &quot;</span> + (myString != <span class="keyword">null</span> &amp;&amp; myString.equals(<span class="string">&quot;foo&quot;</span>)));  <span class="comment">// Noncompliant; null check could be removed</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;Equal?&quot;</span> + <span class="string">&quot;foo&quot;</span>.equals(myString));                         <span class="comment">// properly deals with the null case</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Strings should not be concatenated using ‘+’ in a loop</strong><br><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayOfStrings.length ; ++i) &#123;</span><br><span class="line">  str = str + arrayOfStrings[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//非线程安全</span></span><br><span class="line">StringBuilder bld = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayOfStrings.length; ++i) &#123;</span><br><span class="line">    bld.append(arrayOfStrings[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  String str = bld.toString();</span><br></pre></td></tr></table></figure>
+
+<p><strong>Ternary operators should not be nested</strong></p>
+<p><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getTitle</span><span class="params">(Person p)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> p.gender == Person.MALE ? <span class="string">&quot;Mr. &quot;</span> : p.isMarried() ? <span class="string">&quot;Mrs. &quot;</span> : <span class="string">&quot;Miss &quot;</span>;  <span class="comment">// Noncompliant</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getTitle</span><span class="params">(Person p)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (p.gender == Person.MALE) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Mr. &quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> p.isMarried() ? <span class="string">&quot;Mrs. &quot;</span> : <span class="string">&quot;Miss &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>The diamond operator (“&lt;&gt;”) should be used</strong><br>Java 7 introduced the diamond operator (<code>&lt;&gt;</code>) to reduce the verbosity of generics code. For instance, instead of having to declare a <code>List</code>‘s type in both its declaration and its constructor, you can now simplify the constructor declaration with <code>&lt;&gt;</code>, and the compiler will infer the type.</p>
+<p><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strings = <span class="keyword">new</span> ArrayList&lt;String&gt;();  <span class="comment">// Noncompliant</span></span><br><span class="line">Map&lt;String,List&lt;Integer&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;String,List&lt;Integer&gt;&gt;();  <span class="comment">// Noncompliant</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strings = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">Map&lt;String,List&lt;Integer&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<p><strong>Try-with-resources should be used</strong><br>Java 7 introduced the try-with-resources statement, which guarantees that the resource in question will be closed. Since the new syntax is closer to bullet-proof, it should be preferred over the older <code>try</code>/<code>catch</code>/<code>finally</code> version.<br>This rule checks that <code>close</code>-able resources are opened in a try-with-resources statement.<br><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">FileReader fr = <span class="keyword">null</span>;</span><br><span class="line">BufferedReader br = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  fr = <span class="keyword">new</span> FileReader(fileName);</span><br><span class="line">  br = <span class="keyword">new</span> BufferedReader(fr);</span><br><span class="line">  <span class="keyword">return</span> br.readLine();</span><br><span class="line">&#125; <span class="keyword">catch</span> (...) &#123;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (br != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      br.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span>(IOException e)&#123;...&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (fr != <span class="keyword">null</span> ) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      br.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span>(IOException e)&#123;...&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (</span><br><span class="line">    FileReader fr = <span class="keyword">new</span> FileReader(fileName);</span><br><span class="line">    BufferedReader br = <span class="keyword">new</span> BufferedReader(fr)</span><br><span class="line">  ) &#123;</span><br><span class="line">  <span class="keyword">return</span> br.readLine();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (...) &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vulnerability"><a href="#Vulnerability" class="headerlink" title="Vulnerability"></a>Vulnerability</h3><p><strong>Web 安全相关 （Cookie XSS CSRF SSL HTTP_REFER 等）</strong><br><strong>加密函数相关</strong><br><strong>Sql 注入</strong><br><strong>Spring 框架 相关（注解 components 等）</strong><br><strong>Class variable fields should not have public accessibility</strong><br><strong>不兼容示例代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SOME_CONSTANT = <span class="number">0</span>;     <span class="comment">// Compliant - constants are not checked</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> String firstName;                       <span class="comment">// Noncompliant</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>兼容解决方案</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SOME_CONSTANT = <span class="number">0</span>;     <span class="comment">// Compliant - constants are not checked</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> String firstName;                      <span class="comment">// Compliant</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://guodawn.github.io/blog/2021/07/17/yuque/sonarqube/" data-id="ckr7v6k3p0007386i2hy3fbe0" data-title="sonarqube" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2021/07/17/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">自定义镜像</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/07/">July 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/sonarqube/">sonarqube</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F/">自定义镜像</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/consul/">consul</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/golang%E4%B8%AD%E7%9A%84%E9%99%B7%E9%98%B1/">golang中的陷阱</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/07/17/yuque/grpc/">grpc</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
